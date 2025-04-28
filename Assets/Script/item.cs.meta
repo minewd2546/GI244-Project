@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 43d2289e738fb864ab628e08545896ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - coinBlast: {fileID: 2658243768580769349, guid: 92870a8755560e84282ce0636357c548, type: 3}
+  - diamondBlast: {fileID: 2658243768580769349, guid: 04f6be9e7e79f86458694b14bdae5b1e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

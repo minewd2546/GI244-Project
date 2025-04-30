@@ -32,7 +32,7 @@ public class PlatformSpawner : MonoBehaviour
         int rand = Random.Range(0, 3);
         if (rand > 0)
         {
-            newPos.x += 1f;
+            newPos.x += 2f;
         }
         else
         {

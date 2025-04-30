@@ -23,6 +23,15 @@ public class GameManager : MonoBehaviour
     private bool countScore;
     private bool isPlayerMoving; // Track whether the player is moving
 
+    [Header("Audio")] 
+    public AudioSource audioSource;  // เชื่อมโยงกับ AudioSource
+    public Button soundButton;       // เชื่อมโยงกับปุ่มที่ใช้เปิด/ปิดเสียง
+    private bool isMuted = false;
+    
+    [Header("UI Shop")]
+    public GameObject shopPanel; // Shop Panel UI
+    
+    
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        soundButton.onClick.AddListener(ToggleSound);  // เมื่อกดปุ่มให้เรียกฟังก์ชัน ToggleSound
         //coin
         totalCoin = PlayerPrefs.GetInt("totalCoin");
         coinText.text = totalCoin.ToString();
@@ -64,6 +74,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+    // Open the Shop UI
+    public void OpenShop()
+    {
+        shopPanel.SetActive(true); // Show the Shop panel
+        StartMenuPanel.SetActive(false); // Hide the Main Menu
+    }
+
+    // Close the Shop UI
+    public void CloseShop()
+    {
+        shopPanel.SetActive(false); // Hide the Shop panel
+        StartMenuPanel.SetActive(true); // Show the Main Menu
+    }
+    void ToggleSound()
+    {
+        isMuted = !isMuted;  // สลับสถานะการเปิด/ปิดเสียง
+        audioSource.mute = isMuted;  // ตั้งค่า mute ของ AudioSource
+    }
     public void GameStartMenu()
     {
         StartMenuPanel.SetActive(false);
